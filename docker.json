@@ -3,5 +3,16 @@
     "config:base",
     "docker:enableMajor",
     "docker:pinDigests"
+  ],
+  "packageRules": [
+    {
+      "datasources": [
+        "docker"
+      ],
+      "packagePatterns": [
+        "^snapserv/"
+      ],
+      "versioning": "semver"
+    }
   ]
 }
