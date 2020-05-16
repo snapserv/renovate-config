@@ -1,6 +1,9 @@
 {
   "extends": [
     "config:base",
+    "default:disableRateLimiting",
+    "default:automergeDigest",
+    "default:automergeMinor",
     "docker:enableMajor",
     "docker:pinDigests"
   ],
@@ -13,6 +16,12 @@
         "^snapserv/"
       ],
       "versioning": "semver"
+    },
+    {
+      "paths": [
+        "+(docker-compose.yml)"
+      ],
+      "pinDigests": false
     }
   ],
   "regexManagers": [
