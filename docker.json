@@ -9,28 +9,36 @@
   ],
   "packageRules": [
     {
-      "datasources": [
-        "docker"
-      ],
-      "packagePatterns": [
-        "^snapserv/"
-      ],
+      "datasources": ["docker"],
+      "packagePatterns": ["^snapserv/"],
       "versioning": "semver"
     },
     {
-      "paths": [
-        "+(docker-compose.yml)"
-      ],
+      "paths": ["+(docker-compose.yml)"],
       "pinDigests": false
+    },
+    {
+      "datasources": ["docker", "repology"],
+      "packageNames": ["snapserv/alpine"],
+      "packagePatterns": ["^alpine(?:_[^/]+)/"],
+      "groupName": "alpine packages",
+      "groupSlug": "alpine"
     }
   ],
   "regexManagers": [
     {
-      "fileMatch": [
-        "(^|/)Dockerfile$"
-      ],
+      "fileMatch": ["(^|/)Dockerfile$"],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=\"?(?<currentValue>.*?)\"?\\s"
+        "#\\s*renovate:\\s*datasource=repology depName=alpine/(?<depName>.*?)\\s+ENV .*?_VERSION=\"?(?<currentValue>.*?)\"?\\s"
+      ],
+      "lookupNameTemplate": "alpine_3_12/{{depName}}",
+      "datasourceTemplate": "repology",
+      "versioningTemplate": "loose"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+ENV .*?_VERSION=\"?(?<currentValue>.*?)\"?\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
