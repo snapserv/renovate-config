@@ -15,6 +15,7 @@
     {
       "datasources": ["docker"],
       "packagePatterns": ["^snapserv/"],
+      "ignoreUnstable": false,
       "versioning": "semver"
     },
     {
