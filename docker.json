@@ -20,7 +20,15 @@
     {
       "datasources": ["docker", "repology"],
       "packageNames": ["alpine", "snapserv/alpine"],
-      "packagePatterns": ["^alpine(?:_[^/]+)?/", "-alpine(?:[\\d.]+)?$"],
+      "packagePatterns": ["^alpine(?:_[^/]+)?/"],
+      "managerBranchPrefix": "docker-",
+      "separateMajorMinor": false,
+      "groupName": "alpine packages",
+      "groupSlug": "alpine"
+    },
+    {
+      "datasources": ["docker"],
+      "allowedVersions": ["/-alpine(?:[\\d.]+)?$/"],
       "managerBranchPrefix": "docker-",
       "separateMajorMinor": false,
       "groupName": "alpine packages",
