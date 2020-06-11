@@ -1,9 +1,10 @@
 {
   "extends": [
     "config:base",
-    "default:disableRateLimiting",
     "default:automergeDigest",
     "default:automergeMinor",
+    "default:automergePr",
+    "default:disableRateLimiting",
     "docker:enableMajor",
     "docker:pinDigests"
   ],
