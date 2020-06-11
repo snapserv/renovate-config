@@ -1,14 +1,9 @@
 {
   "extends": [
-    "config:base",
-    "default:automergeDigest",
-    "default:automergeMinor",
-    "default:automergePr",
-    "default:disableRateLimiting",
+    "github>snapserv/renovate-config",
     "docker:enableMajor",
     "docker:pinDigests"
   ],
-  "assignees": ["ppmathis"],
   "packageRules": [
     {
       "paths": ["+(docker-compose.yml)"],
