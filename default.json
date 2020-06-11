@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "config:base",
+    "default:automergeDigest",
+    "default:automergeMinor",
+    "default:automergePr",
+    "default:disableRateLimiting"
+  ],
+  "assignees": ["ppmathis"]
+}
